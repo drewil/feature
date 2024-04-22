@@ -5,14 +5,13 @@
 	"name": "Bookmark Search",
 	"description": "Uses the chrome.bookmarks API to recommend forgotten bookmarks from the user's repository.",
 
-	"permissions": ["bookmarks", "activeTab", "omnibox"],
+	"permissions": ["bookmarks", "activeTab"],
 
 	"omnibox": { "keyword" : "find" },
 
 	"background": {
-    "persistent": false,
-    "scripts": ["background.js"]
-  },
+		"service_worker": "background.js"
+	},
 
 	"action": {
 		"default_popup": "popup.html",
