@@ -30,11 +30,11 @@ body {
 #searchInput {
 	width: 296px;
 	padding: 12px;
-	border: none;
 	border-radius: 20px;
-	font-size: 16px;
 	background-color: rgb(32, 33, 35);
-	border: 1px solid rgb(60, 64, 67);
+
+	font-size: 16px;
+	border: 1.5px solid rgb(60, 64, 67);
 	color: rgb(227, 227, 227);
 }
 
@@ -59,11 +59,18 @@ body {
 	background-color: rgb(60, 64, 67);
 }
 
-hr
+hr {
+	padding: 6px;
+	border: 0;
+	border-top: 1px solid rgb(227, 227, 227, 0.5);
+}
+
+footer {
+	padding: 6px;
+	width: 296px;
+	text-align: center;
+}
 
 p {
-	border: 1px solid rgb(60, 64, 67);
-	width: 100%;
-	text-align: center;
-	color: rgba(255, 255, 255, 0.25);
+	color: rgba(227, 227, 227, 0.5);
 }
