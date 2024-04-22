@@ -1,16 +1,19 @@
 {
-	// Versions
 	"manifest_version": 3,
 	"version": "1.0",
 
-	// Information
 	"name": "Bookmark Search",
 	"description": "Uses the chrome.bookmarks API to recommend forgotten bookmarks from the user's repository.",
 
-	// Permissions
-	"permissions": ["bookmarks", "activeTab"],
+	"permissions": ["bookmarks", "activeTab", "omnibox"],
 
-	// Actions
+	"omnibox": { "keyword" : "find" },
+
+	"background": {
+    "persistent": false,
+    "scripts": ["background.js"]
+  },
+
 	"action": {
 		"default_popup": "popup.html",
 		"default_icon": {
@@ -21,7 +24,6 @@
 		}
 	},
 
-	// Icons
 	"icons": {
 		"16": "icon-16.png",
 		"32": "icon-32.png",
