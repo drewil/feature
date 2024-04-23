@@ -3,7 +3,7 @@
 	"version": "1.0",
 
 	"name": "Noomark",
-	"description": "Uses the chrome.bookmarks API to recommend forgotten bookmarks from the user's repository.",
+	"description": "A productivity tool that uses the chrome.bookmarks API to recommend forgotten bookmarks from the user's repository.",
 
 	"permissions": ["bookmarks", "activeTab"],
 

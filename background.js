@@ -21,6 +21,7 @@ function searchBookmarks(query, suggest) {
 		});
 
 		// Suggest all bookmarks
+		console.log("Suggestions:", suggestions);
 		suggest(suggestions);
 	});
 }
