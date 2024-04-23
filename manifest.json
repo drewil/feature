@@ -2,12 +2,12 @@
 	"manifest_version": 3,
 	"version": "1.0",
 
-	"name": "Bookmark Search",
+	"name": "Noomark",
 	"description": "Uses the chrome.bookmarks API to recommend forgotten bookmarks from the user's repository.",
 
 	"permissions": ["bookmarks", "activeTab"],
 
-	"omnibox": { "keyword" : "find" },
+	"omnibox": { "keyword" : "//" },
 
 	"background": {
 		"service_worker": "background.js"
