@@ -1,43 +1,28 @@
-// Function to search bookmarks and suggest results with pagination
+// Function to search bookmarks and suggest results
 function searchBookmarks(query, suggest) {
-	const suggestions = [];
+	chrome.bookmarks.search(query, function(bookmarks) {
+		if (chrome.runtime.lastError) {
+			console.error("Error searching bookmarks:", chrome.runtime.lastError.message);
+			return;
+		}
 
-	// Define the maximum number of suggestions per page
-	const pageSize = 10;
+		const suggestions = [];
 
-	// Function to suggest a page of bookmarks
-	function suggestPage(pageNumber) {
-			const startIndex = pageNumber * pageSize;
-			const endIndex = startIndex + pageSize;
+		bookmarks.forEach(function(bookmark) {
+			console.log("Title:", bookmark.title);
+			console.log("URL:", bookmark.url);
 
-			chrome.bookmarks.search(query, function(bookmarks) {
-					const bookmarksToShow = bookmarks.slice(startIndex, endIndex);
+			if (bookmark.title && bookmark.url) {
+				suggestions.push({
+					content: bookmark.url,
+					description: bookmark.title
+				});
+			}
+		});
 
-					bookmarksToShow.forEach(function(bookmark) {
-							// Check if both title and URL exist, otherwise skip
-							if (bookmark.title && bookmark.url) {
-									suggestions.push({
-											content: bookmark.url,
-											description: bookmark.title
-									});
-							}
-					});
-
-					// If there are more bookmarks, show a "Next" option
-					if (bookmarks.length > endIndex) {
-							suggestions.push({
-									content: 'next',
-									description: 'Next >'
-							});
-					}
-
-					// Suggest the current page of bookmarks
-					suggest(suggestions);
-			});
-	}
-
-	// Start by suggesting the first page
-	suggestPage(0);
+		// Suggest all bookmarks
+		suggest(suggestions);
+	});
 }
 
 // Register omnibox handler
@@ -47,11 +32,7 @@ chrome.omnibox.onInputChanged.addListener(function(text, suggest) {
 
 // Handle omnibox input
 chrome.omnibox.onInputEntered.addListener(function(text) {
-	if (text === 'next') {
-			// Handle pagination if the user selects "Next" option
-			// You can implement pagination logic here, e.g., by keeping track of current page number
-			// and calling suggestPage with the next page number
-	} else {
-			chrome.tabs.create({ url: text });
+	if (text.startsWith('http') || text.startsWith('https')) {
+		chrome.tabs.create({ url: text });
 	}
 });
