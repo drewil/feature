@@ -11,11 +11,10 @@ body {
 }
 
 .search-wrapper {
-	position: relative;
-}
-
-.search-wrapper input[type="text"] {
-	padding-right: 40px;
+	padding: 12px;
+	border-radius: 20px;
+	background-color: rgb(32, 33, 35);
+	border: 1px solid rgb(227, 227, 227, 0.5);
 }
 
 .search-icon {
@@ -25,38 +24,6 @@ body {
 	transform: translateY(-50%);
 	width: 20px;
 	height: 20px;
-}
-
-#searchInput {
-	width: 296px;
-	padding: 12px;
-	border-radius: 20px;
-	background-color: rgb(32, 33, 35);
-
-	font-size: 16px;
-	border: 1.5px solid rgb(60, 64, 67);
-	color: rgb(227, 227, 227);
-}
-
-#resultsList {
-	list-style-type: none;
-	padding: 0;
-}
-
-#resultsList li {
-	margin-top: 2px;
-	padding: 12px;
-	border-radius: 4px;
-	transition: background-color 0.3s ease;
-	color: rgb(227, 227, 227);
-	font-family: Roboto;
-	font-weight: 400;
-	font-size: 16px;
-	line-height: 22px;
-}
-
-#resultsList li:hover {
-	background-color: rgb(60, 64, 67);
 }
 
 hr {
@@ -73,4 +40,33 @@ footer {
 
 p {
 	color: rgba(227, 227, 227, 0.5);
+}
+
+.typing-animation {
+	border-right: 1px solid orange;
+
+	margin: 0 auto;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+
+	font-size: 16px;
+	color: rgb(138, 180, 247);
+	
+  animation: typing 2s steps(40, end), blink-caret .75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 27.5% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: rgb(138, 180, 247); }
+}
+
+span {
+	padding: 8px 8px 12px 8px;
+	background-color: rgba(0, 0, 0, 0.5);
 }
