@@ -42,7 +42,6 @@ h2 {
 
 .search-container {
 	padding: 6px;
-
 	border-radius: 48px;
 	background-color: rgb(32, 33, 35);
 	border: 1px solid rgb(138, 180, 247);
@@ -55,8 +54,8 @@ h2 {
 
 .typing-animation {
 	margin-top: 8px;
-	border-right: 1px solid rgb(138, 180, 247);
 
+	border-right: 1px solid rgb(138, 180, 247);
 	display: inline-block;
 	overflow: hidden;
 	white-space: nowrap;
@@ -78,20 +77,13 @@ h2 {
 
 /* Animation */
 @keyframes typing {
-	from {
-		width: 0;
-	}
-	to {
-		width: 50%;
-	}
+	from {width: 0;}
+	to {width: 50%;}
 }
 
 @keyframes blink-caret {
-	from, to {
-		border-color: transparent;
-	}
-	50% {
-		border-color: rgb(138, 180, 247);
+	from, to {border-color: transparent;}
+	50% {border-color: rgb(138, 180, 247);
 	}
 }
 
