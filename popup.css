@@ -1,7 +1,37 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
 
 body {
 	background-color: rgb(32, 33, 36);
+}
+
+header {
+	width: 296px;
+	margin-left: 12px;
+	margin-top: 12px;
+	margin-right: 12px;
+	margin-bottom: 6px;
+}
+
+h1 {
+	font-family: 'Roboto';
+	font-weight: 700;
+	font-size: 12px;
+	color: rgba(227, 227, 227, 1);
+}
+
+hr {
+	margin-top: 2px;
+	margin-bottom: 4px;
+	height: 1px;
+}
+
+h2 {
+	font-family: 'Roboto';
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 25px;
+	color: rgba(227, 227, 227, 0.5);
 }
 
 .popup-container {
@@ -10,57 +40,77 @@ body {
 	background-color: rgb(32, 33, 35);
 }
 
-.search-wrapper {
-	padding: 12px;
-	border-radius: 20px;
+.search-container {
+	padding: 6px;
+
+	border-radius: 48px;
 	background-color: rgb(32, 33, 35);
-	border: 1px solid rgb(227, 227, 227, 0.5);
+	border: 1px solid rgb(138, 180, 247);
 }
 
 .search-icon {
-	position: absolute;
-	top: 50%;
-	right: 5px;
-	transform: translateY(-50%);
-	width: 20px;
-	height: 20px;
+	margin-right: 2px;
+	height: 40px;
+}
+
+.typing-animation {
+	margin-top: 8px;
+	border-right: 1px solid rgb(138, 180, 247);
+
+	display: inline-block;
+	overflow: hidden;
+	white-space: nowrap;
+
+	font-family: 'Roboto';
+	font-size: 16px;
+	color: rgb(138, 180, 247);
+	animation: typing 2s steps(40, end), blink-caret .75s step-end infinite;
+}
+
+#filled {
+	margin-left: 2px;
+	margin-right: 2px;
+	padding: 4px;
+
+	color: rgb(32, 33, 35);
+	background-color: rgb(138, 180, 247);
+}
+
+/* Animation */
+@keyframes typing {
+	from {
+		width: 0;
+	}
+	to {
+		width: 50%;
+	}
+}
+
+@keyframes blink-caret {
+	from, to {
+		border-color: transparent;
+	}
+	50% {
+		border-color: rgb(138, 180, 247);
+	}
+}
+
+#text {
+	font-family: 'Roboto';
+	font-weight: 300;
+	font-size: 16px;
+	color: rgba(227, 227, 227, 1);
 }
 
 footer {
-	padding: 6px;
 	width: 296px;
+	padding: 6px;
 	text-align: center;
 }
 
 p {
+	font-family: 'Roboto';
+	font-weight: 400;
+	font-size: 12px;
 	color: rgba(227, 227, 227, 0.5);
-}
-
-.typing-animation {
-	border-right: 1px solid rgb(138, 180, 247);
-
-	margin: 0 auto;
-  display: inline-block;
-  overflow: hidden;
-  white-space: nowrap;
-
-	font-size: 16px;
-	color: rgb(138, 180, 247);
-	
-  animation: typing 2s steps(40, end), blink-caret .75s step-end infinite;
-}
-
-span {
-	padding: 8px 8px 12px 8px;
-	background-color: rgba(0, 0, 0, 0.5);
-}
-
-@keyframes typing {
-  from { width: 0 }
-  to { width: 37.5% }
-}
-
-@keyframes blink-caret {
-  from, to { border-color: transparent }
-  50% { border-color: rgb(138, 180, 247); }
 }
