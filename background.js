@@ -1,42 +1,51 @@
-// Function to search bookmarks and suggest results
-function searchBookmarks(query, suggest) { // what we're looking for
-	chrome.bookmarks.search(query, function(bookmarks) { // what we found
-			if (chrome.runtime.lastError) {
-					console.error("Error searching bookmarks:", chrome.runtime.lastError.message);
-					return;
+function searchBookmarks(query, suggest) {
+	chrome.bookmarks.search(query, function (bookmarks) {
+		if (chrome.runtime.lastError) {
+			console.error("Error searching bookmarks:", chrome.runtime.lastError.message);
+			return;
+		}
+
+		const suggestions = [];
+
+		bookmarks.forEach(function (bookmark) {
+			if (bookmark.title || bookmark.url) {
+				const titleMatches = bookmark.title && bookmark.title.toLowerCase().includes(query.toLowerCase());
+				const urlMatches = bookmark.url && bookmark.url.toLowerCase().includes(query.toLowerCase());
+
+				if (titleMatches || urlMatches) {
+					suggestions.push({
+						content: bookmark.url,
+						description: bookmark.title
+					});
+				}
 			}
+		});
 
-			const suggestions = [];
+		suggest(suggestions);
 
-			bookmarks.forEach(function(bookmark) {
-					if (bookmark.title && bookmark.url) {
-							suggestions.push({
-									content: bookmark.url,
-									description: bookmark.title
-							});
-					}
-			});
-
-			// Suggest relevant bookmarks
-			console.log("Suggestions:", suggestions);
-			suggest(suggestions);
+		if (suggestions.length === 0) {
+			console.log("No suggestions found for query:", query);
+		}
 	});
 }
 
-// Register omnibox handler
-chrome.omnibox.onInputChanged.addListener(function(text, suggest) {
+chrome.omnibox.onInputChanged.addListener(function (text, suggest) {
 	if (text.length > 0) {
-			searchBookmarks(text, suggest);
+		searchBookmarks(text, suggest);
 	} else {
-			suggest([]); // Clear suggestions if input is empty
+		suggest([]);
 	}
 });
 
-// Handle omnibox input
-chrome.omnibox.onInputEntered.addListener(function(text) {
+chrome.omnibox.onInputEntered.addListener(function (text) {
+	let url;
+
 	if (text.startsWith('http') || text.startsWith('https')) {
-			chrome.tabs.create({ url: text });
+		url = text;
 	} else {
-			chrome.tabs.create({ url: 'https://www.google.com/search?q=' + encodeURIComponent(text) });
+		url = 'https://www.google.com/search?q=' + encodeURIComponent(text);
 	}
+
+	console.log("Hello World");
+	chrome.tabs.create({ url: url });
 });
