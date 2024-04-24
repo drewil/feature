@@ -2,7 +2,7 @@
 	"manifest_version": 3,
 	"version": "1.0",
 
-	"name": "Nookmark",
+	"name": "Nookmarks",
 	"description": "A productivity tool that uses the chrome.bookmarks API to recommend forgotten bookmarks from your repository.",
 
 	"permissions": ["bookmarks", "activeTab"],
