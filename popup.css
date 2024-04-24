@@ -26,12 +26,6 @@ body {
 	height: 20px;
 }
 
-hr {
-	padding: 6px;
-	border: 0;
-	border-top: 1px solid rgb(227, 227, 227, 0.5);
-}
-
 footer {
 	padding: 6px;
 	width: 296px;
@@ -43,7 +37,7 @@ p {
 }
 
 .typing-animation {
-	border-right: 1px solid orange;
+	border-right: 1px solid rgb(138, 180, 247);
 
 	margin: 0 auto;
   display: inline-block;
@@ -56,17 +50,17 @@ p {
   animation: typing 2s steps(40, end), blink-caret .75s step-end infinite;
 }
 
+span {
+	padding: 8px 8px 12px 8px;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
 @keyframes typing {
   from { width: 0 }
-  to { width: 27.5% }
+  to { width: 37.5% }
 }
 
 @keyframes blink-caret {
   from, to { border-color: transparent }
   50% { border-color: rgb(138, 180, 247); }
-}
-
-span {
-	padding: 8px 8px 12px 8px;
-	background-color: rgba(0, 0, 0, 0.5);
 }

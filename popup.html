@@ -2,6 +2,7 @@
 <html lang="en">
 
 	<head>
+
 		<!-- Resets -->
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,21 +12,23 @@
 
 		<!-- Stylesheets -->
 		<link rel="stylesheet" href="popup.css">
+
 	</head>
 
 	<body>
 
 		<div class="popup-container">
-
-			<div class="search-wrapper">
+			<div class="search-container">
 				<img src="search_FILL0_wght300_GRAD0_opsz24.svg" alt="Search Icon" class="search-icon">
-				<div class="typing-animation">find<span>spacebar</span></div>
+				<div class="typing-animation">
+					find
+					<span id="selected">spacebar</span>
+					<span id="unselected">start typing</span>
+				</div>
 			</div>
-
 		</div>
 
 		<footer>
-			<hr>
 			<p>© 2024 Bookmark Searcher</p>
 		</footer>
 
